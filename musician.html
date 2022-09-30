@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Musician Page</title>
+ </head>
+<body>
+
+<h1>Musician guess by Sai Kumar Kolli</h1>
+<form>
+    <label for="form1_age">Enter the secret musician name </label>
+    <input type ="password" id="form1_age" name="form1_age" value="John Lennon"> <br>
+
+    <label for="form1_nick">Guess the musician</label>
+    <input type ="text" id="form1_nick" name="form1_nick"> <br>
+
+    <button type="button" onclick="checkGuess()">Check the Guess </button>
+</form>
+
+
+<p id="result"></p>
+
+<script> 
+var correct =0;
+var wrong=0;
+
+function checkGuess (){
+    Name = document.getElementById("form1_age").value
+    NameGuess = document.getElementById("form1_nick").value
+    
+    if(Name==NameGuess){
+        correct=correct+1;
+        confirm("You got it right");
+    } else {
+        wrong=wrong+1;
+        confirm("Wrong Musician");
+    }
+    document.getElementById("result").innerHTML="Total Count is : Wrong-"+wrong+", "+"Correct-"+correct;
+}
+</script>
+
+</body>
+</html> 
