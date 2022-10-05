@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Vacation page</title>
+ </head>
+<body>
+
+<h1>Kolli Sai Kumar select a vacation</h1>
+
+<form>
+    <form>
+        <input type="checkbox" id="cb1_air" name="topping1"   
+          value="True">
+        <label for="cb1_cheese">Travel by Air</label></br>
+      
+        <input type="checkbox" id="cb1_dom" name="topping1" 
+           value="True">
+        <label for="cb1_olive">Domestic</label></br>
+      
+        <input type="checkbox" id="cb1_res" name="topping1"   
+           value="False" >
+        <label for="cb1_onion">Resort</label></br>
+
+        <button onclick="selectVacation();return false;">Select a Vacation</button>
+            <p id="vacRes"></p>
+      </form>
+      
+</form>
+
+<script> 
+my_vacation={};
+
+function selectVacation() {
+    my_vacation={};
+    my_vacation={"air": document.getElementById("cb1_air").checked, "domestic":document.getElementById("cb1_dom").checked,"resort":document.getElementById("cb1_res").checked};
+document.getElementById("vacRes").innerHTML=JSON.stringify(my_vacation);
+}
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
