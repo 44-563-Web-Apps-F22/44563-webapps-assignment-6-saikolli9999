@@ -17,6 +17,24 @@
     <p id="discRes"></p>
 </form>
 
+<form>
+    <input type="radio" id="rg1_red" name="discount" value="times"   
+      onclick="chooseOp();">
+    <label for="rg1_red">*</label></br>
+  
+    <input type="radio" id="rg1_blue" name="discount" 
+       value="divide" onclick="chooseOp();">
+    <label for="rg1_blue">/</label></br>
+  
+    <input type="radio" id="rg1_green" name="discount"   
+       value="exponent" onclick="chooseOp();">
+    <label for="rg1_green">**</label></br>
+
+    <p id="rbtgrDisc"></p>
+
+  </form>
+  
+
 
 <!-- <p id="result">This text will be replaced </p> -->
 
@@ -43,8 +61,25 @@ function discount() {
       let calAmount = i*baseVal-(i*baseVal*(perc/100));
       result=result+calAmount+" ";
     }
-    
     document.getElementById("discRes").innerHTML="Discounted amounts for base "+baseVal+" are "+result+" (discount was "+perc+")";
+}
+function chooseOp() {
+    let baseVal = document.getElementById("numBase").value;
+    let perc = document.getElementById("numPerc").value;
+    let result="";
+   let times = document.getElementById("rg1_red").checked
+   let divide = document.getElementById("rg1_blue").checked
+   let exponent = document.getElementById("rg1_green").checked
+   let confirm;
+    if(times) {
+        document.getElementById("rbtgrDisc").innerHTML="Value is "+baseVal*perc;
+    }
+    else if(divide) {
+        confirm ="/"; document.getElementById("rbtgrDisc").innerHTML="Value is "+baseVal/perc;
+    }
+    else {
+        document.getElementById("rbtgrDisc").innerHTML="Value is "+baseVal**perc;
+    }
 
 }
 </script>
